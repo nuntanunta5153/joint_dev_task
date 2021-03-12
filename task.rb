@@ -5,7 +5,8 @@ def q1
   names = ["田中", "佐藤", "佐々木", "高橋"]
 
   # 以下に回答を記載
-
+  names.push("斉藤")
+  p names
 end
 
 def q2
@@ -14,6 +15,10 @@ def q2
 
   # 以下に回答を記載
 
+  # array = (array1 + array2).uniq
+  array = array1 | array2
+  p array
+
 end
 
 def q3
@@ -21,12 +26,16 @@ def q3
 
   # 以下に回答を記載
 
+  puts numbers.length
+
+
 end
 
 def q4
   sports = ["サッカー", "フットサル", nil, "野球", "バスケ", nil, "バレー"]
 
   # 以下に回答を記載
+  sports.delete_if {|item|item == nil}
 
   # 以下は変更しないで下さい
   p sports
@@ -35,14 +44,16 @@ end
 def q5
   array1 = []
   array2 = [1, 5, 8, 10]
-
+  puts array1.empty?
+  puts array2.empty?
   # 以下に回答を記載
 
 end
 
 def q6
   numbers1 = [1, 2, 3, 4, 5]
-
+  numbers2 = numbers1.map{|n| n * 10}
+  p numbers2
   # 以下に回答を記載
 
 end
@@ -51,7 +62,7 @@ def q7
   array = ["1", "2", "3", "4", "5"]
 
   # 以下に回答を記載
-
+  array.map!(&:to_i)
   # 以下は変更しないで下さい
   p array
 end
@@ -60,24 +71,33 @@ def q8
   programming_languages = %w(ruby php python javascript)
 
   # 以下に回答を記載
-
+  programming_languages.map(&:capitalize!)
+  end
   # 以下は変更しないで下さい
   p programming_languages
-  p upper_case_programming_languages
+  # p upper_case_programming_languages
 end
 
 def q9
   names = ["田中", "佐藤", "佐々木", "高橋"]
 
   # 以下に回答を記載
-
+  names.each_with_index do |name, i|
+    puts "会員No.#{i + 1} #{name}さん"
+  end
 end
 
 def q10
   foods = %w(いか たこ うに しゃけ うにぎり うに軍艦 うに丼)
 
   # 以下に回答を記載
-
+  foods.each do |food|
+    if food.include?("うに")
+      puts "#{food}は好物です"
+    else
+      puts "#{food}はまぁまぁ好きです"
+    end
+  end
 end
 
 def q11
@@ -89,9 +109,8 @@ end
 
 def q12
   data = { user: { name: "satou", age: 33 } }
-
   # 以下に回答を記載
-
+  puts data[:user][:name]
 end
 
 def q13
@@ -99,14 +118,15 @@ def q13
   update_data = { age: 32, address: "沖縄" }
 
   # 以下に回答を記載
-
+  user_data = user_data.merge(update_data)
+  puts user_data
 end
 
 def q14
   data = { name: "satou", age: 33, address: "saitama", hobby: "soccer", email: "hoge@fuga.com" }
 
   # 以下に回答を記載
-
+  p data.keys
 end
 
 def q15
@@ -126,7 +146,9 @@ def q16
   ]
 
   # 以下に回答を記載
-
+  users.each do |user|
+    puts "私の名前は#{user[:name]}です。年齢は#{user[:age]}歳です。"
+  end
 end
 
 class UserQ17
