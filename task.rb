@@ -5,18 +5,16 @@ def q1
   names = ["田中", "佐藤", "佐々木", "高橋"]
 
   # 以下に回答を記載
-  names.push("斉藤")
+  names << "斉藤"
   p names
 end
 
 def q2
   array1 = ["dog", "cat", "fish"]
-  array2 = ["bird", "bat", "tiger"]
+  array2 = ["bird", "bat", "tiger",]
 
   # 以下に回答を記載
-
-  # array = (array1 + array2).uniq
-  array = array1 | array2
+  array = array1 + array2
   p array
 
 end
@@ -25,8 +23,7 @@ def q3
   numbers = [1, 5, 8, 10, 2, 3, 2, 3, 3, 1, 4, 5, 9]
 
   # 以下に回答を記載
-
-  puts numbers.length
+  puts numbers.count(3)
 
 
 end
@@ -35,7 +32,7 @@ def q4
   sports = ["サッカー", "フットサル", nil, "野球", "バスケ", nil, "バレー"]
 
   # 以下に回答を記載
-  sports.delete_if {|item|item == nil}
+  sports = sports.compact!
 
   # 以下は変更しないで下さい
   p sports
@@ -72,18 +69,21 @@ def q8
 
   # 以下に回答を記載
   programming_languages.map(&:capitalize!)
-  end
+  upper_case_programming_languages = programming_languages.map(&:upcase)
   # 以下は変更しないで下さい
   p programming_languages
-  # p upper_case_programming_languages
+  p upper_case_programming_languages
 end
 
 def q9
   names = ["田中", "佐藤", "佐々木", "高橋"]
 
   # 以下に回答を記載
-  names.each_with_index do |name, i|
-    puts "会員No.#{i + 1} #{name}さん"
+  # names.each_with_index do |name, i|
+  #   puts "会員No.#{i + 1} #{name}さん"
+  # end
+  names.each.with_index(1) do |name,i|
+    puts "会員No.#{i} #{name}さん"
   end
 end
 
@@ -102,9 +102,12 @@ end
 
 def q11
   sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"], "水泳", "ハンドボール", ["卓球", "サッカー", "ボルダリング"]]
-
   # 以下に回答を記載
-
+  sports_one_dimensional = sports.flatten!.uniq!
+  puts "ユーザーの趣味一覧"
+  sports_one_dimensional.each.with_index(1) do |sport,i|
+    puts "No#{i} #{sport}"
+  end
 end
 
 def q12
@@ -118,8 +121,9 @@ def q13
   update_data = { age: 32, address: "沖縄" }
 
   # 以下に回答を記載
-  user_data = user_data.merge(update_data)
-  puts user_data
+  # user_data = user_data.merge(update_data)
+  puts user_data.merge!(update_data)
+  # puts user_data
 end
 
 def q14
@@ -132,6 +136,18 @@ end
 def q15
   data1 = { name: "saitou", hobby: "soccer", age: 33, role: "admin" }
   data2 = { name: "yamada", hobby: "baseball", role: "normal" }
+
+  if data1.key?(:age)
+    puts "OK"
+  else
+    puts "NG"
+  end
+
+  if data2.key?(:age)
+    puts "OK"
+  else
+    puts "NG"
+  end
 
   # 以下に回答を記載
 
