@@ -32,7 +32,7 @@ def q4
   sports = ["サッカー", "フットサル", nil, "野球", "バスケ", nil, "バレー"]
 
   # 以下に回答を記載
-  sports = sports.compact!
+  sports.compact!
 
   # 以下は変更しないで下さい
   p sports
@@ -103,9 +103,9 @@ end
 def q11
   sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"], "水泳", "ハンドボール", ["卓球", "サッカー", "ボルダリング"]]
   # 以下に回答を記載
-  sports_one_dimensional = sports.flatten!.uniq!
+  sports.flatten!.uniq!
   puts "ユーザーの趣味一覧"
-  sports_one_dimensional.each.with_index(1) do |sport,i|
+  sports.each.with_index(1) do |sport,i|
     puts "No#{i} #{sport}"
   end
 end
@@ -137,19 +137,22 @@ def q15
   data1 = { name: "saitou", hobby: "soccer", age: 33, role: "admin" }
   data2 = { name: "yamada", hobby: "baseball", role: "normal" }
 
-  if data1.key?(:age)
-    puts "OK"
-  else
-    puts "NG"
-  end
-
-  if data2.key?(:age)
-    puts "OK"
-  else
-    puts "NG"
-  end
-
   # 以下に回答を記載
+  
+  # if data1.key?(:age)
+  #   puts "OK"
+  # else
+  #   puts "NG"
+  # end
+  (data1.key?(:age)) ? (puts "OK"): (puts "NG")
+
+  # if data2.key?(:age)
+  #   puts "OK"
+  # else
+  #   puts "NG"
+  # end
+  (data2.key?(:age)) ? (puts "OK"): (puts "NG")
+  
 
 end
 
