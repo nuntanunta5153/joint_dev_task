@@ -144,14 +144,16 @@ def q15
   # else
   #   puts "NG"
   # end
-  (data1.key?(:age)) ? (puts "OK"): (puts "NG")
+  # (data1.key?(:age)) ? (puts "OK"): (puts "NG")
+  puts data1.key?(:age) ? "OK" : "NG"
 
   # if data2.key?(:age)
   #   puts "OK"
   # else
   #   puts "NG"
   # end
-  (data2.key?(:age)) ? (puts "OK"): (puts "NG")
+  # (data2.key?(:age)) ? (puts "OK"): (puts "NG")
+  puts data2.key?(:age) ? "OK" : "NG"
   
 
 end
