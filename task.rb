@@ -208,7 +208,7 @@ class UserQ18
   end
 
   def introduce
-    if @age == 32
+    if @age > 18
       "こんにちは、#{@name}と申します。宜しくお願いいたします。"
     else
       "はいさいまいど〜、#{@name}です!!!"
@@ -228,13 +228,9 @@ end
 
 class Item
   # 以下を修正して下さい
-  # attr_reader ;name
+  attr_reader :name
   def initialize(name:)
     @name = name
-  end
-
-  def name
-    @name
   end
 end
 
@@ -259,16 +255,29 @@ class Zoo
     @name = name
     @entry_fee = entry_fee
   end
+  # def info_entry_fee(user)
+  #   if  user.age > 0 && user.age < 5
+  #     puts "#{user.name}さんの入場料金は#{@entry_fee[:infant]}です。"
+  #   elsif user.age > 6 && user.age < 12
+  #     puts "#{user.name}さんの入場料金は#{@entry_fee[:children]}です。"
+  #   elsif user.age > 13 && user.age < 64
+  #     puts "#{user.name}さんの入場料金は#{@entry_fee[:adult]}です。"
+  #   elsif user.age > 65 && user.age < 120
+  #     puts "#{user.name}さんの入場料金は#{@entry_fee[:senior]}です。"
+  #   end
+  # end
   def info_entry_fee(user)
-    if  user.age > 0 && user.age < 5
-      puts "#{user.name}さんの入場料金は#{@entry_fee[:infant]}です。"
-    elsif user.age > 6 && user.age < 12
-      puts "#{user.name}さんの入場料金は#{@entry_fee[:children]}です。"
-    elsif user.age > 13 && user.age < 64
-      puts "#{user.name}さんの入場料金は#{@entry_fee[:adult]}です。"
-    elsif user.age > 65 && user.age < 120
-      puts "#{user.name}さんの入場料金は#{@entry_fee[:senior]}です。"
+    case user.age
+    when 0..5
+      fee = @entry_fee[:infant]
+    when 6..12
+      fee = @entry_fee[:children]
+    when 13..64
+      fee = @entry_fee[:adult]
+    when 65..120
+      fee = @entry_fee[:senior]
     end
+    puts "#{user.name}さんの入場料金は#{fee}です。"
   end
 end
 
